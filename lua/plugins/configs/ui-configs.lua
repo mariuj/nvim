@@ -14,6 +14,7 @@ return function(use)
       vim.g.gruvbox_material_sign_column_background = 'none' -- Match sign column background with the editor
       vim.g.gruvbox_material_better_performance = true  -- Improve performance
       vim.cmd.colorscheme('gruvbox-material')
+      vim.cmd('highlight NonText ctermfg=1 guifg=#800000')
     end
   }
 

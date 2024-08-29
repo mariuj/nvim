@@ -2,10 +2,8 @@ local o = vim.o
 local g = vim.g
 local opt = vim.opt
 
--- Python environment
 g.python3_host_prog = os.getenv("HOME") .. "/.pyenv/versions/neovim/bin/python"
---g.loaded_python_provider = 0
---g.loaded_python3_provider = 0
+
 
 -- UI Configurations
 o.clipboard = "unnamedplus"     -- Use the system clipboard
@@ -17,8 +15,12 @@ o.number = true                 -- Show absolute line numbers
 o.relativenumber = true         -- Show relative line numbers
 o.cmdheight = 1                 -- Height of the command line
 o.cursorline = true             -- Highlight the cursor line
-opt.colorcolumn = "120"          -- Highlight the nth column
+opt.colorcolumn = "80"          -- Highlight the nth column
 opt.shortmess:append "sI"       -- Shorten certain messages
+
+o.wrap = true
+o.linebreak = true
+o.showbreak="▶"
 
 -- Search Configurations
 o.ignorecase = true             -- Ignore case in search patterns
@@ -56,7 +58,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Miscellaneous
 o.mouse = "a"                   -- Enable mouse support in all modes
-o.wrap = false                  -- Do not wrap lines
 o.errorbells = false            -- Disable the audible bell on errors
 o.fileencoding = "utf-8"        -- Default file encoding
 opt.completeopt = { "menuone", "noselect" } -- Customize insert mode completion behavior

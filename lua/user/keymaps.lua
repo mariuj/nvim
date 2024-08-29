@@ -52,12 +52,13 @@ vim.api.nvim_set_keymap("n", "<leader>bgt", ":lua BufferGoToPrompt()<CR>", { nor
 -- Molten 
 map("n", "<localleader>mi", ":MoltenInfo<CR>", { silent = true, desc = "Show info" })
 map("n", "<localleader>mk", ":MoltenInit<CR>", { silent = true, desc = "Initialize the kernel" })
-map("n", "<localleader>mo", ":MoltenEnterOutput<CR>", { silent = true, desc = "Open output window" })
+map("n", "<localleader>mo", ":noautocmd MoltenEnterOutput<CR>", { silent = true, desc = "Open output window" })
 map("n", "<localleader>me", ":MoltenEvaluateOperator<CR>", { silent = true, desc = "run operator selection" })
 map("n", "<localleader>ml", ":MoltenEvaluateLine<CR>", { silent = true, desc = "evaluate line" })
 map("n", "<localleader>mr", ":MoltenReevaluateCell<CR>", { silent = true, desc = "re-evaluate cell" })
 map("v", "<localleader>mv", ":<C-u>MoltenEvaluateVisual<CR>gv", { silent = true, desc = "evaluate visual selection" })
 map("n", "<localleader>md", ":MoltenDelete<CR>", { silent = true, desc = "evaluate visual selection" })
+map("n", "<localleader>mp", ":MoltenImagePopup<CR>", { silent = true, desc = "Open image in browser" })
 function select_and_evaluate()
   local start_line = vim.fn.search("# %%", "bW")
   if start_line == 0 then return end
@@ -122,7 +123,7 @@ local utils = require('plugins.configs.pyright_config')
 vim.api.nvim_set_keymap('n', '<leader>pr', ':lua require("plugins.configs.pyright_config").save_pyright_config()<CR>', { noremap = true, silent = true })
 
 -- Markdown Preview
-vim.api.nvim_set_keymap('n', '<localleader>mp', ':MarkdownPreviewToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<localleader>md', ':MarkdownPreviewToggle<CR>', { noremap = true, silent = true })
 
 -- Which-key
 local wk = require("which-key")
