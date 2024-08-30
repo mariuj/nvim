@@ -9,5 +9,5 @@ return function(use)
   require('plugins.configs.jupytext')(use)
   require('plugins.configs.nvim-which-key')(use)
   require('plugins.configs.wiki')(use)
+  require('plugins.configs.toggleterm')(use)
 end
-

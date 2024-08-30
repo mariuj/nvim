@@ -1,4 +1,4 @@
-local map = vim.keymap.set 
+local map = vim.keymap.set
 
 -------------
 -- leaders
@@ -34,22 +34,14 @@ map('n', '<leader>fb', builtin.buffers, { desc = "List buffers" })
 map('n', '<leader>fh', builtin.help_tags, { desc = "Find help tags" })
 
 -- tabufline
-map("n", "<leader>be", "<cmd>enew<cr>", { desc = "New tab" })
-map("n", "<leader>bs", "<cmd>new<cr>", { desc = "New pane" })
+map("n", "<leader>bt", "<cmd>enew<cr>", { desc = "New tab" })
+map("n", "<leader>bs", "<cmd>new<cr>", { desc = "New split" })
 map("n", "<leader>bp", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
 map("n", "<leader>bn", "<cmd>bnext<cr>", { desc = "Next buffer" })
-map("n", "<leader>bc", "<cmd>BufferClose<cr>", { desc = "Close buffer" })
-function BufferGoToPrompt()
-  local buffer_number = vim.fn.input("nuffer number: ")
-  if buffer_number ~= "" then
-    vim.cmd("BufferGoto " .. buffer_number)
-  else
-    print("No buffer number entered.")
-  end
-end
-vim.api.nvim_set_keymap("n", "<leader>bgt", ":lua BufferGoToPrompt()<CR>", { noremap = true, silent = true, desc = "Buffer Go To n" })
+map("n", "<leader>bx", "<cmd>BufferClose<cr>", { desc = "Close buffer" })
+map("n", "<leader>bgt", ":lua vim.cmd('buffer ' .. vim.fn.nr2char(vim.fn.getchar()))<CR>", { noremap = true, silent = true })
 
--- Molten 
+-- Molten
 map("n", "<localleader>mi", ":MoltenInfo<CR>", { silent = true, desc = "Show info" })
 map("n", "<localleader>mk", ":MoltenInit<CR>", { silent = true, desc = "Initialize the kernel" })
 map("n", "<localleader>mo", ":noautocmd MoltenEnterOutput<CR>", { silent = true, desc = "Open output window" })
@@ -142,4 +134,3 @@ wk.add({
   { "<leader>c", group = "Toggle comment" },
   { "<localleader>m", group = "Molten" },
 })
-
